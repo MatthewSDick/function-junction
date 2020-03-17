@@ -4,35 +4,89 @@
  * construct available in Javascript.
  */
 
-// ...
+const max = (x, y) => {
+  var numbers = []
+
+  if (typeof x === 'number') {
+    numbers.push(x)
+  }
+
+  if (typeof y === 'number') {
+    numbers.push(y)
+  }
+
+  if (numbers === undefined || numbers.length == 0) {
+    return 'NaN'
+  } else {
+    return Math.max(...numbers)
+  }
+}
 
 /**
  * 2) Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
 
-// ...
+// const maxOfThree = (x, y, z) => {
+// return Math.max(x, y, z)
+// }
+
+const maxOfThree = (x, y, z) => {
+  var numbers = []
+
+  if (typeof x === 'number') {
+    numbers.push(x)
+  }
+
+  if (typeof y === 'number') {
+    numbers.push(y)
+  }
+
+  if (typeof z === 'number') {
+    numbers.push(z)
+  }
+
+  if (numbers === undefined || numbers.length == 0) {
+    return 'NaN'
+  } else {
+    var maxNum = Math.max(...numbers)
+    return maxNum
+  }
+}
 
 /*
  * 3) Define a function sum() that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-// ...
+const sum = (x, y) => {
+  return parseInt(x) + parseInt(y)
+}
 
 /*
  * 4) Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
 
-// ...
+const sumOfArray = inputArray => {
+  const sum = inputArray.reduce((a, b) => a + b, 0)
+  return sum
+}
 
 /**
  * 5) Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
 
-// ...
+const isVowel = inLetter => {
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  for (var x = 0; x < vowels.length; x++) {
+    if (inLetter.toLowerCase() === vowels[x]) {
+      return true
+    }
+  }
+  return false
+}
 
 /**
  * 6) Write a function rovarspraket() that will translate
@@ -43,7 +97,21 @@
  * return the string "tothohisos isos fofunon".
  */
 
-// ...
+const rovarspraket = inString => {
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  var outString = ''
+
+  // lo0p the cars in the string
+  for (var i = 0; i < inString.length; i++) {
+    var inChar = inString.charAt(i)
+    if ('aeiouAEIOU'.includes(inChar)) {
+      outString = outString + inChar
+    } else {
+      outString = outString + inChar + 'o' + inChar
+    }
+  }
+  return outString
+}
 
 /**
  * 7) Define a function reverse() that computes
@@ -52,7 +120,13 @@
  * string "books".
  */
 
-// ...
+const reverse = inString => {
+  var returnString = ''
+  for (var i = inString.length - 1; i >= 0; i--) {
+    returnString += inString[i]
+  }
+  return returnString
+}
 
 /**
  * 8) Write a function findLongestWord() that takes an
@@ -61,7 +135,19 @@
  * i.e. findLongestWord("book dogs") should return "book"
  */
 
-// ...
+const findLongestWord = inString => {
+  var strSplit = inString.split(' ')
+  var longestWord = 0
+  var returnWord = ''
+  for (var i = 0; i < strSplit.length; i++) {
+    if (strSplit[i].length === longestWord) {
+    } else if (strSplit[i].length > longestWord) {
+      returnWord = strSplit[i]
+    }
+    longestWord = strSplit[i].length
+  }
+  return returnWord
+}
 
 /**
  * NOTE: Don't modify anything below this line...
